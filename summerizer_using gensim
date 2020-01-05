@@ -1,0 +1,18 @@
+from gensim.summarization.summarizer import summarize
+from newspaper import Article
+
+// 사용하기 전에 2가지의 설치 과정 이 필요하다 
+// pip install gensim
+// pip install newspaper3k
+ 
+
+url ='https://news.naver.com/main/ranking/read.nhn?mid=etc&sid1=111&rankingType=popular_day&oid=025&aid=0002965423&date=20200105&type=1&rankingSeq=1&rankingSectionId=101'
+//url의 요약하고 싶은 기사의 url을 입력한다. 
+
+news = Article(url)
+news.download()
+news.parse()
+
+print(summarize(news.text, word_count=100))
+
+ 
